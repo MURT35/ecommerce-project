@@ -1,7 +1,7 @@
 
 import { NavLink } from 'react-router'
 import './header.css'
-export function Header({cart}){
+export function Header({cart = []}){
   let Totalquantity=0
   cart.forEach((Cartitem)=>{
     Totalquantity += Cartitem.quantity
