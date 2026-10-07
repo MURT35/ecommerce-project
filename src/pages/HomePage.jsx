@@ -1,11 +1,15 @@
 
 import {Header} from '../components/Header'
 import axios from 'axios'
+import { useEffect ,useState } from 'react'
 import './HomePage.css'
-import {products} from '../../starting-code/data/products'
 export  function HomePage(){
+  const [products,setProducts]=useState([])
+  useEffect(()=>{
   axios.get("http://localhost:3000/api/products")
-  .then((res)=>console.log(res.data))
+  .then((res)=>setProducts(res.data))
+  },[])
+
  
     return(
         <>
