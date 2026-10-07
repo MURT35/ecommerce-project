@@ -5,16 +5,22 @@ import { useEffect ,useState } from 'react'
 import './HomePage.css'
 export  function HomePage(){
   const [products,setProducts]=useState([])
+  const [cart,setCart]=useState([])
   useEffect(()=>{
   axios.get("http://localhost:3000/api/products")
-  .then((res)=>setProducts(res.data))
+  .then((response)=>setProducts(response.data))
+  },[])
+  useEffect(()=>{
+  axios.get("http://localhost:3000/api/cart-items")
+  .then((response)=>setCart(response.data))
+
   },[])
 
  
     return(
         <>
          <title>Ecommerce Project</title>
-    <Header />
+    <Header cart={cart} />
     <div className="home-page">
       <div className="products-grid">
         {products.map((product)=>{
