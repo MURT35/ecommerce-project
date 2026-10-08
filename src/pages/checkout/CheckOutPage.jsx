@@ -13,15 +13,14 @@ export function CheckOutPage({cart}){
 
   useEffect(()=>{ 
 const FetchAppData= async()=>{
-const response=await axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
+let response=await axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
  setDeliveryOptions (response.data)
+response=await axios.get('/api/payment-summary')
+setPaymentSummary(response.data)
 } 
-const FetchAppData2= async()=>{
-const response=await axios.get('/api/payment-summary')
-  setPaymentSummary(response.data)
-} 
+
 FetchAppData()
-FetchAppData2()
+
   },[])
 
 
