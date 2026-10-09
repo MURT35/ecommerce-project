@@ -1,7 +1,12 @@
 
 import dayjs from "dayjs"
 import {formatMoney} from '../../ulits/money'
-export function CartItem( {Cartitem , selectedDeliveryOption} ){
+import axios from "axios"
+export function CartItem( {Cartitem , selectedDeliveryOption , loadCart} ){
+  const deleteCartitem= async ()=>{
+     await axios.delete(`/api/cart-items/${Cartitem.productId}`)
+     await loadCart()
+    }
     return(
         <>
          <div className="delivery-date">
@@ -25,7 +30,8 @@ export function CartItem( {Cartitem , selectedDeliveryOption} ){
                   <span className="update-quantity-link link-primary">
                     Update
                   </span>
-                  <span className="delete-quantity-link link-primary">
+                  <span className="delete-quantity-link link-primary" 
+                  onClick={deleteCartitem}>
                     Delete
                   </span>
                 </div>
