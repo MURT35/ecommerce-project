@@ -16,8 +16,6 @@ export function Product({product,loadCart}){
                 setQuantity(SelectedQuantity)
               }
 
-
-
   return(
      <div key={product.id} className="product-container">
           <div className="product-image-container">
