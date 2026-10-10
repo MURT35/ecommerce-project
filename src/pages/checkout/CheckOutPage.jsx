@@ -37,7 +37,7 @@ return(
   
        <OrderSummary cart={cart} deliveryOptions={deliveryOptions} loadCart={loadCart} />
     
-       < Paymentsummary paymentSummary={paymentSummary} />
+       < Paymentsummary paymentSummary={paymentSummary}  loadCart={loadCart}/>
 
        
       </div>
