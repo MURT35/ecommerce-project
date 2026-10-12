@@ -2,7 +2,6 @@ import { it , vi , expect,describe,beforeEach} from "vitest";
 import { render  , screen} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {Product} from './product'
-
 import axios from "axios";
 vi.mock('axios')
 describe('Product component',()=>{
