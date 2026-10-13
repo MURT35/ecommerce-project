@@ -8,4 +8,10 @@ describe('formatMoney',()=>{
         expect(formatMoney(1990)).toBe('19.90')
         expect(formatMoney(100)).toBe('1.00')
     })
+    it('format 0 to 0.00',()=>{
+        expect(formatMoney(0)).toBe('0.00')
+    })
+    it('diplay negative number',()=>{
+        expect(formatMoney(-199)).toBe('-1.99')
+    })
 })
