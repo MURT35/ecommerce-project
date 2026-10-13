@@ -8,7 +8,9 @@ vi.mock('axios')
 
 describe('HomePage component',()=>{
 let loadCart
+let user
 beforeEach(()=>{
+    user=userEvent.setup()
     loadCart=vi.fn()
     axios.get.mockImplementation(async(url)=>{
         if(url==='/api/products'){
@@ -50,5 +52,6 @@ beforeEach(()=>{
    const productContainer =await screen.findAllByTestId("product-container")
    expect(productContainer.length).toBe(2)
    within(productContainer[0]).getByText('Black and Gray Athletic Cotton Socks - 6 Pairs')
+
     })
 })
