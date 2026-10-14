@@ -1,14 +1,23 @@
 
 import { NavLink , useNavigate , useSearchParams } from 'react-router'
-import { useState } from 'react'
+import { useState, type ChangeEvent } from 'react'
 import './header.css'
-export function Header({cart = []}){
+
+type HeaderProps = {
+  cart: {
+    productId: string
+    quantity: number
+    deliveryOptionId: string
+  }[]
+}
+
+export function Header({cart = []}: HeaderProps){
    
   const navigate=useNavigate()
   const [searchParams]=useSearchParams()
   const searchText=searchParams.get('search')
  const[searchValue,setSearchValue]=useState(searchText || '')
-  const hanldeSearchChange= (event)=>{
+  const hanldeSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value)
   }
   const hanldeSearchClick=()=>{

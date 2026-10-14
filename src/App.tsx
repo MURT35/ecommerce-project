@@ -6,7 +6,14 @@ import {TrackingPage} from './pages/tracking/TrackingPage'
 import axios from 'axios'
 import { useEffect ,useState } from 'react'
 import './App.css'
- window.axios = axios;
+
+declare global {
+  interface Window {
+    axios: typeof axios
+  }
+}
+
+window.axios = axios
 function App() {
   
 
